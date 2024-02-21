@@ -1,0 +1,1 @@
+const kTimeTransaction=Duration(milliseconds: 250);
