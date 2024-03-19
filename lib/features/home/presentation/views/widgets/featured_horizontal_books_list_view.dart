@@ -10,6 +10,7 @@ class FeaturedHorizontalBooksListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height*0.31,
 
       child: ListView.builder(
+        itemCount: 10,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return const Padding(
