@@ -1,5 +1,4 @@
 
-const kHomeView = '/home_view';
 
 
 
