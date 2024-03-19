@@ -59,11 +59,11 @@ class BestSellerListViewItem extends StatelessWidget {
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width*.15,),
                 
-                        Icon(FontAwesomeIcons.solidStar,color: Colors.orangeAccent,),
-                        SizedBox(width: 5,),
+                        const Icon(FontAwesomeIcons.solidStar,color: Colors.orangeAccent,),
+                        const SizedBox(width: 5,),
                 
-                        Text("4.8",style: Styles.textStyle16,),
-                        SizedBox(width: 5,),
+                        const Text("4.8",style: Styles.textStyle16,),
+                        const SizedBox(width: 5,),
                         Text("(2450)",style: Styles.textStyle14.copyWith(color: Colors.grey),)
                       ],
                     )

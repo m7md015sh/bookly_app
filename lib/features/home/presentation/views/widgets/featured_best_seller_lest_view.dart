@@ -6,7 +6,7 @@ class FeaturedBestSellerLestView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(physics: NeverScrollableScrollPhysics(),padding: EdgeInsets.zero,itemBuilder: (context,index){
+    return ListView.builder(physics: const NeverScrollableScrollPhysics(),padding: EdgeInsets.zero,itemBuilder: (context,index){
       return const Padding(
         padding: EdgeInsets.only(bottom: 5.0,left: 5,right: 5,top: 5),
         child: BestSellerListViewItem(),
