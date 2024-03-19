@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets/assets_paths.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -65,12 +66,7 @@ class BestSellerListViewItem extends StatelessWidget {
                           ),
                           SizedBox(width: MediaQuery.of(context).size.width*.15,),
 
-                          const Icon(FontAwesomeIcons.solidStar,color: Colors.orangeAccent,),
-                          const SizedBox(width: 5,),
-
-                          const Text("4.8",style: Styles.textStyle16,),
-                          const SizedBox(width: 5,),
-                          Text("(2450)",style: Styles.textStyle14.copyWith(color: Colors.grey),)
+                          const BookRating(),
                         ],
                       )
                     ],
@@ -84,3 +80,5 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
+
+
