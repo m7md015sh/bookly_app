@@ -26,47 +26,49 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
-                    child: const Text(
-                      "Harry Potter and the Goblet of fire ",
-                      style: Styles.textStyle18,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "j.k .Rowling",
-                    style: Styles.textStyle14.copyWith(color: Colors.grey),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "19.99 \$",
-                        style: Styles.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold),
+              child: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .5,
+                      child: const Text(
+                        "Harry Potter and the Goblet of fire ",
+                        style: Styles.textStyle18,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width*.23,),
-
-                      Icon(FontAwesomeIcons.solidStar,color: Colors.orangeAccent,),
-                      SizedBox(width: 5,),
-
-                      Text("4.8",style: Styles.textStyle16,),
-                      SizedBox(width: 5,),
-                      Text("(2450)",style: Styles.textStyle14.copyWith(color: Colors.grey),)
-                    ],
-                  )
-                ],
+                    ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      "j.k .Rowling",
+                      style: Styles.textStyle14.copyWith(color: Colors.grey),
+                    ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "19.99 \$",
+                          style: Styles.textStyle20
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: MediaQuery.of(context).size.width*.15,),
+                
+                        Icon(FontAwesomeIcons.solidStar,color: Colors.orangeAccent,),
+                        SizedBox(width: 5,),
+                
+                        Text("4.8",style: Styles.textStyle16,),
+                        SizedBox(width: 5,),
+                        Text("(2450)",style: Styles.textStyle14.copyWith(color: Colors.grey),)
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],

@@ -7,13 +7,13 @@ class FeaturedHorizontalBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height*0.30,
+      height: MediaQuery.of(context).size.height*0.31,
 
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return const Padding(
-              padding: EdgeInsets.symmetric(horizontal:10.0 ,vertical: 15.0),
+              padding: EdgeInsets.only(right:10.0 ,bottom: 15),
               child: CustomListViewItem(),
             );
           }),
