@@ -3,26 +3,51 @@ import 'package:bookly_app/core/utils/api_service.dart';
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImp extends HomeRepo {
   final ApiService apiService;
   HomeRepoImp(this.apiService);
   @override
-  Future<Either<Failures, BookModel>> fetchNewSetBooks() async {
+  Future<Either<Failure, BookModel>> fetchNewSetBooks() async {
     try {
       var data = apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
+          endPoint:   'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
       Future<Map<String, dynamic>> books= data;
       return right(books as BookModel);
     } on Exception catch (e) {
-      return left(ServerFailure());
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
 
   }
 
   @override
-  Future<Either<Failures, BookModel>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
+  Future<Either<Failure, BookModel>> fetchFeaturedBooks() async{
+    try {
+      var data = apiService.get(
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:computer');
+      Future<Map<String, dynamic>> books= data;
+      return right(books as BookModel);
+    } on Exception catch (e) {
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
   }
 }
