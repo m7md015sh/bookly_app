@@ -9,7 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const Bookly());
+  setup();
+  runApp( const Bookly());
 }
 
 class Bookly extends StatelessWidget {
@@ -28,7 +29,7 @@ class Bookly extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
               getIt.get<HomeRepoImp>(),
-          ),
+          )..fetchFeaturedBooks(),
         ),
       ],
       child: MaterialApp.router(

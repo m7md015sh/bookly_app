@@ -5,5 +5,5 @@ import '../models/book_model.dart';
 
 abstract class HomeRepo{
  Future<Either<Failure,BookModel>> fetchNewSetBooks();
- Future<Either<Failure,BookModel>> fetchFeaturedBooks();
+ Future<Either<Failure,dynamic>> fetchFeaturedBooks();
 }
