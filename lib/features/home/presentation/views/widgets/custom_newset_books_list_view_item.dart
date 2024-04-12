@@ -12,10 +12,11 @@ class NewSetListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        GoRouter.of(context).push(AppRouter.kBooksDetailsView);
+        GoRouter.of(context).push(AppRouter.kBooksDetailsView,extra: book);
       },
       child: SizedBox(
         height: 125,
+
         child: Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Row(
@@ -65,7 +66,7 @@ class NewSetListViewItem extends StatelessWidget {
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width*.15,),
 
-                         BookRating(rating: book.volumeInfo?.averageRating ?? 0, count: book.volumeInfo?.pageCount ??0,),
+                         BookRating(rating: book.volumeInfo?.averageRating ?? 0, count: book.volumeInfo?.ratingsCount ??0,),
                       ],
                     )
                   ],

@@ -11,10 +11,11 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, BookModel>> fetchNewSetBooks() async {
     try {
-      dynamic data =await apiService.get(
-          endPoint:   'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
+      dynamic data = await apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
       print(data);
-      var books= BookModel.fromJson(data);
+      var books = BookModel.fromJson(data);
       return right(books);
     } on Exception catch (e) {
       if (e is DioError) {
@@ -28,18 +29,16 @@ class HomeRepoImp extends HomeRepo {
         ),
       );
     }
-
   }
 
   @override
- Future<Either<Failure, BookModel>> fetchFeaturedBooks() async{
+  Future<Either<Failure, BookModel>> fetchFeaturedBooks() async {
     try {
-
-      dynamic data =await apiService.get(
+      dynamic data = await apiService.get(
           endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
 
-     var books= BookModel.fromJson(data);
-      return right(books );
+      var books = BookModel.fromJson(data);
+      return right(books);
     } on Exception catch (e) {
       if (e is DioError) {
         return left(
@@ -55,8 +54,25 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, BookModel>> fetchSimilarBooks({required String category}) {
-    // TODO: implement fetchSimilarBooks
-    throw UnimplementedError();
+  Future<Either<Failure, BookModel>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      dynamic data = await apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:Programming');
+      var books = BookModel.fromJson(data);
+      return right(books);
+    } on Exception catch (e) {
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
   }
 }
