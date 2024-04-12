@@ -21,7 +21,7 @@ class CustomButtonAction extends StatelessWidget {
         ),
           onPressed: () {},
           child: Text(
-            '$text',
+            text,
             style: Styles.textStyle16.copyWith(color: textColor,fontWeight: FontWeight.w600),
           )),
     );

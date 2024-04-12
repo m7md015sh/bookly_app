@@ -24,12 +24,12 @@ class Bookly extends StatelessWidget {
         BlocProvider(
           create: (context) => NewSetBooksCubit(
             getIt.get<HomeRepoImp>(),
-          ),
+          )..fetchNewSetBooks(),
         ),
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
               getIt.get<HomeRepoImp>(),
-          )..fetchFeaturedBooks(),
+          )..fetchFeaturedBooks()
         ),
       ],
       child: MaterialApp.router(

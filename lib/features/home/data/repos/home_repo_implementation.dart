@@ -11,10 +11,11 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, BookModel>> fetchNewSetBooks() async {
     try {
-      var data = apiService.get(
+      dynamic data =await apiService.get(
           endPoint:   'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
-      Future<Map<String, dynamic>> books= data;
-      return right(books as BookModel);
+      print(data);
+      var books= BookModel.fromJson(data);
+      return right(books);
     } on Exception catch (e) {
       if (e is DioError) {
         return left(
@@ -33,17 +34,14 @@ class HomeRepoImp extends HomeRepo {
   @override
  Future<Either<Failure, BookModel>> fetchFeaturedBooks() async{
     try {
-      print('===============ssssssss================');
 
       dynamic data =await apiService.get(
           endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
-      print('===============ssssssss================${data}');
 
      var books= BookModel.fromJson(data);
       return right(books );
     } on Exception catch (e) {
       if (e is DioError) {
-        print('error is ==================================$e');
         return left(
           ServerFailure.fromDioError(e),
         );
