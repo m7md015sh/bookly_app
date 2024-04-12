@@ -53,4 +53,10 @@ class HomeRepoImp extends HomeRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, BookModel>> fetchSimilarBooks({required String category}) {
+    // TODO: implement fetchSimilarBooks
+    throw UnimplementedError();
+  }
 }
